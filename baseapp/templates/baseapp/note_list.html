@@ -1,0 +1,42 @@
+{% extends 'baseapp/base.html' %}
+{% block content %}
+
+    <div class="container pt-4">
+        
+        <div class="container">
+            <p>Public Notes</p>
+            <div class="row">
+                {% for note in notes %}
+                
+                
+                <div class="col-md-4 border-primary mb-4 " >
+                    <div class="shadow bg-white rounded p-3" style="width: 290px;height: 190px;">
+                        <div class="header ">
+                        <p  class="note-author" >@{{note.author}} &nbsp; 
+                        {% if note.author == request.user %}
+                        <a name="next_page" value="{{ request.GET.next_page }}" style="float: right;text-decoration: none;color:black;" href="{%  url 'note-delete' note.pk %}"><i class="fa fa-trash"></i></a> 
+                        {% endif %}
+                            <br><span class="note-date">{{note.created_on}}</span></p>
+                        
+
+                        </div>
+                        <div class="">
+                            <p class="note-title p-0 m-0">{{note.title}}</p>
+                            <span class="note-body" >{{note.body}}</span>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+                {% endfor %}
+
+        
+            
+            
+           
+        </div>
+    </div>
+{% endblock content %}
+
+    

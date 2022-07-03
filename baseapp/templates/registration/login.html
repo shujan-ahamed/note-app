@@ -1,0 +1,30 @@
+{% extends 'baseapp/base.html' %}
+
+{% block content %}
+
+<div class="col-md-12 text-center mt-3">
+    <p>Don't have an account? Create one <a class="btn btn-sm btn-outline-dark" href="{% url 'signup' %}">SignUp</a></p>
+
+    <div class="py-5 ">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="username">Username :</label>
+            <input type="text" name="username"><br> 
+                <br>
+            <label for="password">Password :</label>
+            <input type="password" name="password">
+            <br>
+             &nbsp;
+             <br>
+             &nbsp;
+
+            <button class="btn btn-sm btn-outline-dark" type="Submit" value="Submit">Login</button>
+        </form>
+
+
+    </div>
+
+
+</div>
+{% endblock %}

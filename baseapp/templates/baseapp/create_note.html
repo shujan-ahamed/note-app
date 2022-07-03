@@ -1,0 +1,29 @@
+
+{% extends 'baseapp/base.html' %}
+
+{% block content %}
+
+<div class="row d-flex container form-body p-5">
+    <div class="col-md-8 col-sm-12  mb-4t ext-center  p-5 ">
+      <p>Create a note:</p>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="titletext" class="form-label">Title</label>
+            {{form.title}}          
+        </div>
+        <div class="mb-3">
+          <label for="bodytext" class="form-label">Note</label>
+            {{form.body}} 
+        </div>
+
+        <div >
+              <p>{{form.publish_as}}</p>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet"> 
+
+
+    <title>Notes App</title>
+
+    <style>
+        .note-author{
+            font-family: sans-serif;
+        }
+        .nav-item:active {
+        text-decoration: underline;
+        color: inherit;
+        }
+
+        #search-onput {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        /* groove */
+
+      }
+      
+      .no-outline:focus {
+        outline: none;
+      }
+      .note-title{
+
+        font-size: 1rem;
+        font-weight: 600;
+
+        }
+        .note-date{
+
+        font-size: 0.8rem;
+        font-weight: .5rem;
+        font-family: sans-serif;
+
+        }
+        .note-body{
+            word-wrap: break-word;
+        }
+        
+        .a{
+            text-decoration: none;
+            color: #000000;
+        }
+        
+
+        .blog-footer {
+        padding: 1rem 0;
+        color: #727272;
+        text-align: center;
+        background-color: #f9f9f9;
+        border-top: .05rem solid #e5e5e5;
+        }
+        .blog-footer p:last-child {
+            
+        margin-bottom: 0;
+        }
+         /* navbar  */
+         .my-nav .nav-item:active{
+            text-decoration: underline;
+
+         }
+        
+    </style>
+
+    
+
+  </head>
+  <body>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/b2284a4676.js" crossorigin="anonymous"></script>
+
+    
+  </body>
+    
+
+    <header class="navbar navbar-light bg-white px-4 py-3 btn-focus-width">
+        <div class="container-fluid">
+        <a class="navbar-brand">Notes</a>
+        <form class="d-flex">
+            <a class="btn btn-sm btn-outline-primary bg-primary text-white" href="{% url 'create-note' %}">+ Create a public note</a>
+        </form>
+        </div>
+        </header>
+
+        <!-- dynamic navbar -->
+        
+        <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light px-4 pt-0 border-bottom  my-nav" >
+        <div container-fluid>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'private-note' %}">Private</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Public</a>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+
+    <div class="p-4 search-box border-bottom">
+        <form action="{% url 'search' %}">
+            <span>
+                <i class="fa fa-search" aria-hidden="true" bag></i>
+            </span>
+            <input name="query" value="{{request.GET.query}}" id="search-onput" type="text-light expand-large" class="no-outline" placeholder="Search notes">
+        </form>
+
+    </div>
+
+    <main class="">
+
+    <div>
+    {% block content %}
+        
+    {% endblock content %}
+    </div>
+
+    </main>
+
+    <footer class="blog-footer mt-5">
+        <p>Programmed and developed  by <a style="text-decoration: none;" href="https://github.com/shujan-ahamed"> <i class="fa-brands fa-github"></i>shujan</a></p>
+        <p>Project <a style="text-decoration: none;" href="https://github.com/shujan-ahamed/noteapp">source code</a></p>
+      </footer>
+
+      
+    
+</html>
+
+
+    
